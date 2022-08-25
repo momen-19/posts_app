@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:posts_app/posts/posts_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp(),));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.limeAccent,
         primarySwatch: Colors.blue,
       ),
-      home: Text('123'),
+      home: const PostsPage(),
     );
   }
 }

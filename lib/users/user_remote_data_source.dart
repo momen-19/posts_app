@@ -13,7 +13,13 @@ abstract class UserRemoteDataSource {
 
   @GET('/users')
   Future<List<UserModel>> getUsers();
+
+  @GET('/users/{id}')
+  Future<List<UserModel>> getUserWithId(@Path("id") int id);
 }
 
 final usersRemoteDataSource = Provider<UserRemoteDataSource>(
-    (ref) => UserRemoteDataSource(ref.read(dio)));
+  (ref) => UserRemoteDataSource(
+    ref.read(dio),
+  ),
+);

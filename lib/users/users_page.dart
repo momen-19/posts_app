@@ -12,7 +12,7 @@ class UserPage extends ConsumerWidget {
     final state = ref.watch(users);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Posts'),
+        title: const Text('Users'),
       ),
       body: state.when(
         loading: () => const Center(

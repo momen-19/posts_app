@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.limeAccent,
         primarySwatch: Colors.blue,
       ),
-      home: const UserPage(),
+      home: PostsPage(),
     );
   }
 }

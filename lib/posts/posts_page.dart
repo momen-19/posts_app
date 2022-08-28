@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:posts_app/posts/post_details_page.dart';
+import 'package:posts_app/posts/post_model.dart';
 import 'package:posts_app/posts/posts_controller.dart';
 
 class PostsPage extends ConsumerWidget {
-  const PostsPage({
+  PostsPage({
     Key? key,
   }) : super(key: key);
 
@@ -23,6 +25,17 @@ class PostsPage extends ConsumerWidget {
           itemCount: posts.length,
           itemBuilder: (context, index) {
             return ListTile(
+              onTap: () {
+                _goToDetailsScreen(
+                  context,
+                  PostModel(
+                    id: posts[index].id,
+                    userId: posts[index].id,
+                    title: posts[index].title,
+                    body: posts[index].body,
+                  ),
+                );
+              },
               title: Text(posts[index].title),
             );
           },
@@ -30,4 +43,13 @@ class PostsPage extends ConsumerWidget {
       ),
     );
   }
+}
+
+void _goToDetailsScreen(BuildContext context, PostModel postModel) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => PostDetailsPage(postModel: postModel),
+    ),
+  );
 }

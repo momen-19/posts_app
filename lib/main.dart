@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:posts_app/posts/posts_page.dart';
 import 'package:posts_app/users/users_page.dart';
 
 void main() {
@@ -14,11 +13,12 @@ class MyApp extends StatelessWidget {
   {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         backgroundColor: Colors.limeAccent,
         primarySwatch: Colors.blue,
       ),
-      home: PostsPage(),
+      home: UserPage(),
     );
   }
 }

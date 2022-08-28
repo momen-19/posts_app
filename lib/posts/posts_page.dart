@@ -24,19 +24,25 @@ class PostsPage extends ConsumerWidget {
         data: (posts) => ListView.builder(
           itemCount: posts.length,
           itemBuilder: (context, index) {
-            return ListTile(
-              onTap: () {
-                _goToDetailsScreen(
-                  context,
-                  PostModel(
-                    id: posts[index].id,
-                    userId: posts[index].id,
-                    title: posts[index].title,
-                    body: posts[index].body,
-                  ),
-                );
-              },
-              title: Text(posts[index].title),
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListTile(
+                tileColor: Colors.black12,
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                onTap: () {
+                  _goToDetailsScreen(
+                    context,
+                    PostModel(
+                      id: posts[index].id,
+                      userId: posts[index].id,
+                      title: posts[index].title,
+                      body: posts[index].body,
+                    ),
+                  );
+                },
+                title: Text(posts[index].title),
+              ),
             );
           },
         ),

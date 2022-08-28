@@ -22,10 +22,17 @@ class PostDetailsPage extends StatelessWidget {
 
 _buildBody(PostModel postModel) {
   return ListTile(
-    contentPadding: EdgeInsets.symmetric(vertical: 10),
+    tileColor: Colors.black12,
+    contentPadding: const EdgeInsets.symmetric(vertical: 10),
     title: Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text(postModel.title),
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        color: Colors.black26,
+        child: Text(
+          postModel.title,
+        ),
+      ),
     ),
     subtitle: Padding(
       padding: const EdgeInsets.all(8.0),

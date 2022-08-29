@@ -7,7 +7,7 @@ import 'package:posts_app/posts/posts_controller.dart';
 final nameProvider = StateProvider<String>((ref) => '');
 
 class PostsPage extends ConsumerWidget {
-  PostsPage({
+  const PostsPage({
     Key? key,
   }) : super(key: key);
 

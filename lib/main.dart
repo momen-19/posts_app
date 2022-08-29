@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:posts_app/home_page.dart';
+import 'package:posts_app/posts/posts_page.dart';
 import 'package:posts_app/users/users_page.dart';
 
 void main() {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.limeAccent,
         primarySwatch: Colors.blue,
       ),
-      home: UserPage(),
+      home: HomePage(),
     );
   }
 }

@@ -13,7 +13,9 @@ class PostDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Post Details'),
+        backgroundColor: Colors.black12,
+        elevation: 0,
+        title: const Text('Post Details',style: TextStyle(color: Colors.black)),
       ),
       body: _buildBody(postModel),
     );

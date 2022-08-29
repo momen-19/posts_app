@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:posts_app/network/api.dart';
 import 'package:posts_app/users/user_model.dart';
 import 'package:retrofit/http.dart';
+
 
 part 'user_remote_data_source.g.dart';
 
@@ -16,6 +20,11 @@ abstract class UserRemoteDataSource {
 
   @GET('/users/{id}')
   Future<List<UserModel>> getUserWithId(@Path("id") int id);
+
+
+  @POST("users")
+  Future<UserModel> createUser(@Body() UserModel user);
+
 }
 
 final usersRemoteDataSource = Provider<UserRemoteDataSource>(

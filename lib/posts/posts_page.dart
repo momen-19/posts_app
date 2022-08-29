@@ -14,7 +14,9 @@ class PostsPage extends ConsumerWidget {
     final state = ref.watch(posts);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Posts'),
+        backgroundColor: Colors.black12,
+        elevation: 0,
+        title: const Text('Posts',style: TextStyle(color: Colors.black)),
       ),
       body: state.when(
         loading: () => const Center(

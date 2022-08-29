@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:posts_app/users/create_user.dart';
 import 'package:posts_app/users/user_controller.dart';
 import 'package:posts_app/users/user_details.dart';
 import 'package:posts_app/users/user_model.dart';
@@ -14,7 +15,12 @@ class UserPage extends ConsumerWidget {
     final state = ref.watch(users);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Users'),
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.black12,
+        elevation: 0,
+        title: const Text('Users', style: TextStyle(color: Colors.black)),
       ),
       body: state.when(
         loading: () => const Center(
@@ -31,7 +37,21 @@ class UserPage extends ConsumerWidget {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
-                onTap: () =>_goToDetailsUser(
+                trailing: Container(
+                  width: 80,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      users[index].status,
+                      style: TextStyle(color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  color: users[index].status == 'active'
+                      ? Colors.green
+                      : Colors.red,
+                ),
+                onTap: () => _goToDetailsUser(
                   context,
                   UserModel(
                     id: users[index].id,
@@ -52,10 +72,21 @@ class UserPage extends ConsumerWidget {
           },
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const CreateUserPage(),
+            ),
+          );
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.black45,
+      ),
     );
   }
 }
-
 
 void _goToDetailsUser(BuildContext context, UserModel userModel) {
   Navigator.push(
@@ -65,4 +96,3 @@ void _goToDetailsUser(BuildContext context, UserModel userModel) {
     ),
   );
 }
-
